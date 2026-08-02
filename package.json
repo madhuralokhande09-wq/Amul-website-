@@ -1,0 +1,20 @@
+{
+  "name": "amul-website",
+  "version": "1.0.0",
+  "description": "Amul Blueberry Protein Shake - Interactive 3D Canvas Scroll Engine",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [
+    "amul",
+    "protein-shake",
+    "3d-animation",
+    "canvas",
+    "vercel"
+  ],
+  "author": "",
+  "license": "ISC"
+}
