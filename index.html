@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amul Protein Shake | Blueberry 20g Protein</title>
+  <meta name="description" content="Amul Blueberry Protein Shake – 20g real whey protein, zero added sugar, real fruit. Ready to drink. Fuel your everyday.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── PRELOADER ── -->
+  <div id="preloader" class="preloader">
+    <div class="loader-content">
+      <div class="brand-badge">
+        <span class="brand-sub">AMUL HIGH PROTEIN</span>
+        <h1 class="brand-title">BLUEBERRY <span>SHAKE</span></h1>
+      </div>
+      <div class="loader-visual">
+        <div class="liquid-bottle-outline">
+          <i class="fa-solid fa-bottle-water bottle-icon"></i>
+          <div class="liquid-fill" id="loader-liquid"></div>
+        </div>
+      </div>
+      <div class="loader-progress-wrap">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="loader-bar"></div>
+        </div>
+        <div class="loader-status">
+          <span id="loader-text">Loading experience...</span>
+          <span id="loader-percent">0%</span>
+        </div>
+      </div>
+      <button id="enter-btn" class="enter-btn hidden">
+        <span>ENTER EXPERIENCE</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <div class="brand-logo-icon">A</div>
+        <div class="brand-text">
+          <span class="brand-name">Amul</span>
+          <span class="brand-tag">PROTEIN</span>
+        </div>
+      </a>
+      <nav class="nav-menu">
+        <a href="#hero-scroll" class="nav-link active">Experience</a>
+        <a href="#ad-section" class="nav-link">Campaign</a>
+        <a href="#flavors" class="nav-link">Flavors</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="sound-toggle" class="icon-btn" title="Toggle Sound">
+          <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+        </button>
+        <button class="cta-btn buy-now-trigger">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>Buy Now</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BRAND SLIDE — Separate full-screen heading slide ── -->
+  <section class="brand-slide" id="brand-slide">
+    <div class="brand-slide-bg"></div>
+    <div class="brand-slide-content">
+      <div class="brand-slide-eyebrow"><i class="fa-solid fa-circle-dot"></i> NOW AVAILABLE</div>
+      <h1 class="brand-slide-heading">Amul <span>Shake</span></h1>
+      <p class="brand-slide-tagline">The Taste of India</p>
+      <div class="brand-slide-divider"></div>
+      <p class="brand-slide-sub">Scroll down to experience the animation</p>
+      <div class="brand-slide-arrow"><i class="fa-solid fa-angles-down"></i></div>
+    </div>
+  </section>
+
+  <!-- ── SCROLL CANVAS SECTION ── -->
+  <section class="scroll-section" id="hero-scroll">
+    <div class="sticky-viewport">
+      <canvas id="animation-canvas"></canvas>
+
+      <!-- hotspots appear mid-animation -->
+      <div class="hotspots-layer" id="hotspots-layer">
+        <div class="hotspot-item" style="top:22%;left:50%;">
+          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
+          <div class="hotspot-card"><h4>Leak-Proof Cap</h4><p>Gym-bag ready seal.</p></div>
+        </div>
+        <div class="hotspot-item" style="top:52%;left:44%;">
+          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
+          <div class="hotspot-card"><h4>20g Whey Protein</h4><p>Premium BCAA blend for rapid recovery.</p></div>
+        </div>
+        <div class="hotspot-item" style="top:76%;left:56%;">
+          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
+          <div class="hotspot-card"><h4>Real Blueberry</h4><p>Genuine fruit extract, no artificial flavors.</p></div>
+        </div>
+      </div>
+
+      <!-- minimal control dock -->
+      <div class="control-dock">
+        <div class="dock-left">
+          <button id="play-pause-btn" class="dock-btn active" title="Play / Pause">
+            <i class="fa-solid fa-pause" id="play-icon"></i>
+          </button>
+          <button id="fit-mode-btn" class="dock-btn" title="Fit / Fill">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+          <button id="hotspots-toggle-btn" class="dock-btn active" title="Hotspots">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </div>
+        <div class="scrubber-wrapper">
+          <input type="range" id="frame-scrubber" min="1" max="93" value="1" step="1">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAMPAIGN SECTION — slides in immediately after experience ── -->
+  <section class="ad-section campaign-slide" id="ad-section">
+
+    <!-- AD HERO BANNER -->
+    <div class="ad-hero-banner">
+      <div class="ad-hero-content">
+        <div class="ad-eyebrow"><i class="fa-solid fa-star"></i> NEW LAUNCH &nbsp;•&nbsp; LIMITED TIME OFFER</div>
+        <h2 class="ad-headline">Drink Real.<br>Perform Real.</h2>
+        <p class="ad-sub">20g of premium whey protein. Real blueberries. Zero added sugar.<br>The cleanest protein shake India has ever tasted.</p>
+        <div class="ad-cta-row">
+          <button class="ad-primary-btn buy-now-trigger">
+            <i class="fa-solid fa-cart-plus"></i> Order Now — ₹50 Only
+          </button>
+          <a href="#flavors" class="ad-ghost-btn">
+            See All Flavors <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="ad-trust-pills">
+          <span><i class="fa-solid fa-shield-halved"></i> FSSAI Certified</span>
+          <span><i class="fa-solid fa-leaf"></i> No Preservatives</span>
+          <span><i class="fa-solid fa-award"></i> Trusted by 5M+ Indians</span>
+        </div>
+      </div>
+      <div class="ad-hero-visual">
+        <div class="ad-circle-glow"></div>
+        <div class="ad-stats-grid">
+          <div class="ad-stat"><span class="ad-stat-val">20g</span><span class="ad-stat-label">Protein</span></div>
+          <div class="ad-stat highlight"><span class="ad-stat-val">0g</span><span class="ad-stat-label">Added Sugar</span></div>
+          <div class="ad-stat"><span class="ad-stat-val">120</span><span class="ad-stat-label">Calories</span></div>
+          <div class="ad-stat"><span class="ad-stat-val">4.5g</span><span class="ad-stat-label">BCAAs</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AD FEATURE STRIP -->
+    <div class="ad-feature-strip">
+      <div class="ad-feature-item">
+        <div class="ad-feat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+        <h3>Muscle Recovery</h3>
+        <p>Fast-absorbing whey isolate that repairs micro-tears and rebuilds stronger muscles within 30 mins.</p>
+      </div>
+      <div class="ad-feature-item">
+        <div class="ad-feat-icon"><i class="fa-solid fa-blueberries"></i></div>
+        <h3>Real Blueberry</h3>
+        <p>Packed with anthocyanin antioxidants from genuine fruit extract — not artificial flavoring.</p>
+      </div>
+      <div class="ad-feature-item">
+        <div class="ad-feat-icon"><i class="fa-solid fa-ban"></i></div>
+        <h3>Zero Sugar Added</h3>
+        <p>No refined sugar spikes. Naturally sweetened profile that aligns perfectly with a lean diet.</p>
+      </div>
+      <div class="ad-feature-item">
+        <div class="ad-feat-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <h3>Ready to Drink</h3>
+        <p>No mixing, no shaker, no mess. Grab, twist, sip — your protein hit in 10 seconds flat.</p>
+      </div>
+    </div>
+
+    <!-- BOTTLE VIDEO SHOWCASE -->
+    <div class="bottle-video-section">
+      <div class="bottle-video-inner">
+        <div class="bottle-video-left">
+          <span class="ad-section-eyebrow">SIGNATURE 3D SHOWCASE</span>
+          <h2 class="bottle-video-heading">Watch the<br><span>Bottle Come Alive</span></h2>
+          <p class="bottle-video-desc">Experience Amul Blueberry Protein Shake in its full 3D glory — watch it rise through a luxurious milk splash surrounded by real blueberries. A product born for the spotlight.</p>
+          <div class="bottle-video-badges">
+            <div class="vid-badge"><i class="fa-solid fa-dumbbell"></i><span>20g Protein</span></div>
+            <div class="vid-badge"><i class="fa-solid fa-ban"></i><span>Zero Sugar</span></div>
+            <div class="vid-badge"><i class="fa-solid fa-circle-check"></i><span>FSSAI Approved</span></div>
+          </div>
+          <button class="ad-primary-btn buy-now-trigger" style="margin-top:28px;">
+            <i class="fa-solid fa-cart-plus"></i> Order Now — ₹50
+          </button>
+        </div>
+        <div class="bottle-video-right">
+          <div class="bottle-video-frame">
+            <div class="bvf-glow"></div>
+            <canvas id="bottle-video-canvas"></canvas>
+            <div class="bvf-badge-top">3D ANIMATION</div>
+            <div class="bvf-controls">
+              <button id="bv-play-btn" class="bv-ctrl-btn" title="Play / Pause">
+                <i class="fa-solid fa-pause" id="bv-play-icon"></i>
+              </button>
+              <div class="bv-progress-bar"><div class="bv-progress-fill" id="bv-progress-fill"></div></div>
+              <button id="bv-replay-btn" class="bv-ctrl-btn" title="Replay">
+                <i class="fa-solid fa-rotate-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AD TAGLINE FULL WIDTH BANNER -->
+    <div class="ad-tagline-banner">
+      <div class="ad-tagline-inner">
+        <div class="marquee-track">
+          <span>FUEL YOUR GRIND &nbsp;•&nbsp; 20G PROTEIN &nbsp;•&nbsp; REAL BLUEBERRY &nbsp;•&nbsp; ZERO SUGAR &nbsp;•&nbsp;</span>
+          <span>FUEL YOUR GRIND &nbsp;•&nbsp; 20G PROTEIN &nbsp;•&nbsp; REAL BLUEBERRY &nbsp;•&nbsp; ZERO SUGAR &nbsp;•&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AD TESTIMONIALS -->
+    <div class="ad-testimonials">
+      <div class="ad-section-header">
+        <span class="ad-section-eyebrow">REAL PEOPLE. REAL RESULTS.</span>
+        <h2>Why Athletes Love Amul Protein</h2>
+      </div>
+      <div class="ad-review-grid">
+        <div class="ad-review-card">
+          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"Finally a protein shake that actually tastes like real blueberry and not like medicine. Post-workout staple!"</p>
+          <div class="ad-reviewer"><div class="ad-reviewer-avatar">RK</div><div><strong>Rahul Khanna</strong><span>Marathon Runner, Mumbai</span></div></div>
+        </div>
+        <div class="ad-review-card featured">
+          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"20g protein at ₹50? I was skeptical but the quality is unmatched. Switched from expensive imports to Amul."</p>
+          <div class="ad-reviewer"><div class="ad-reviewer-avatar">PS</div><div><strong>Priya Sharma</strong><span>CrossFit Coach, Delhi</span></div></div>
+        </div>
+        <div class="ad-review-card">
+          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p>"The blueberry flavor is so refreshing! No heavy whey aftertaste. My clients love it as a morning meal replacement."</p>
+          <div class="ad-reviewer"><div class="ad-reviewer-avatar">AM</div><div><strong>Arjun Menon</strong><span>Certified Nutritionist, Bangalore</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLAVOR SECTION -->
+    <div class="ad-flavors" id="flavors">
+      <div class="ad-section-header">
+        <span class="ad-section-eyebrow">EXPLORE THE RANGE</span>
+        <h2>Choose Your Flavor</h2>
+      </div>
+      <div class="flavor-tabs">
+        <button class="flavor-btn active" data-flavor="blueberry"><span class="dot blueberry-dot"></span>Blueberry</button>
+        <button class="flavor-btn" data-flavor="chocolate"><span class="dot chocolate-dot"></span>Chocolate</button>
+        <button class="flavor-btn" data-flavor="vanilla"><span class="dot vanilla-dot"></span>Vanilla</button>
+        <button class="flavor-btn" data-flavor="mango"><span class="dot mango-dot"></span>Mango</button>
+      </div>
+      <div class="flavor-showcase-box">
+        <div class="flavor-info">
+          <span class="flavor-badge" id="flavor-badge">TOP SELLER</span>
+          <h3 id="flavor-title">Blueberry Blast</h3>
+          <p id="flavor-desc">Real blueberry extract with 20g premium whey — sweet, tangy, and packed with antioxidants.</p>
+          <div class="flavor-specs">
+            <div><strong>Size:</strong> 200 ml</div>
+            <div><strong>Protein:</strong> 20g per bottle</div>
+            <div><strong>Price:</strong> ₹50</div>
+          </div>
+          <button class="primary-btn buy-now-trigger">Order This Flavor →</button>
+        </div>
+        <div class="flavor-preview-visual">
+          <div class="bottle-glow-backdrop" id="flavor-glow"></div>
+          <div class="preview-bottle-tag">20g PROTEIN</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL CTA BANNER -->
+    <div class="ad-final-cta">
+      <div class="ad-final-cta-inner">
+        <h2>Ready to Power Up?</h2>
+        <p>Join 5 million+ Indians who trust Amul for daily protein. Order today and get free express delivery.</p>
+        <button class="ad-primary-btn large buy-now-trigger">
+          <i class="fa-solid fa-cart-plus"></i> Order Amul Protein Shake — ₹50
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── ORDER MODAL ── -->
+  <div class="modal-overlay" id="order-modal">
+    <div class="modal-card">
+      <button class="close-modal-btn" id="close-modal">&times;</button>
+      <div class="modal-header">
+        <span class="modal-sub">AMUL DIRECT STORE</span>
+        <h3>Order Protein Shake</h3>
+      </div>
+      <div class="modal-body">
+        <div class="product-summary">
+          <div class="sum-thumb"><i class="fa-solid fa-bottle-water"></i></div>
+          <div class="sum-details">
+            <h4>Blueberry Protein Shake (200ml)</h4>
+            <p>20g Protein • 0g Added Sugar</p>
+            <div class="unit-price">₹50 per bottle</div>
+          </div>
+        </div>
+        <div class="quantity-selector">
+          <label>Quantity:</label>
+          <div class="qty-controls">
+            <button id="qty-minus"><i class="fa-solid fa-minus"></i></button>
+            <span id="qty-val">6</span>
+            <button id="qty-plus"><i class="fa-solid fa-plus"></i></button>
+          </div>
+          <div class="pack-note">Pack of 6 recommended for weekly training.</div>
+        </div>
+        <div class="price-breakdown">
+          <div class="row"><span>Subtotal</span><span id="price-subtotal">₹300</span></div>
+          <div class="row"><span>Express Delivery</span><span class="free-tag">FREE</span></div>
+          <div class="row total-row"><span>Total</span><span id="price-total">₹300</span></div>
+        </div>
+        <button class="checkout-btn" id="complete-checkout-btn">
+          <span>PROCEED TO CHECKOUT</span>
+          <i class="fa-solid fa-lock"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST ── -->
+  <div class="toast-notification" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-msg">Order placed!</span>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand"><h3>Amul <span>PROTEIN</span></h3><p>The Taste of India • Powered by Modern Nutrition</p></div>
+      <div class="footer-links">
+        <a href="#hero-scroll">Experience</a>
+        <a href="#ad-section">Campaign</a>
+        <a href="#flavors">Flavors</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 Amul Dairy. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
