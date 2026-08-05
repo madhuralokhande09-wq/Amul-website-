@@ -13,6 +13,8 @@ const MIME_TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.avif': 'image/avif',
+  '.mp4': 'video/mp4',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.woff2': 'font/woff2',
@@ -56,7 +58,7 @@ const server = http.createServer((req, res) => {
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
     // Set cache control for image frames to make scroll super fast after initial load
-    if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') {
+    if (ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.avif' || ext === '.mp4') {
       res.setHeader('Cache-Control', 'public, max-age=86400');
     }
 
@@ -64,7 +66,6 @@ const server = http.createServer((req, res) => {
     fs.createReadStream(filePath).pipe(res);
   });
 });
-
 
 const os = require('os');
 
@@ -77,15 +78,14 @@ function getLocalIP() {
       }
     }
   }
-  return 'YOUR_PC_IP';
+  return '127.0.0.1';
 }
 
 server.listen(PORT, '0.0.0.0', () => {
   const localIP = getLocalIP();
   console.log(`================================================`);
-  console.log(`🚀 Amul Server Running on ALL interfaces`);
-  console.log(`💻 Laptop  : http://localhost:${PORT}`);
-  console.log(`📱 Phone   : http://${localIP}:${PORT}`);
-  console.log(`   (Phone must be on same Wi-Fi)`);
+  console.log(`🚀 Amul Protein Luxury Website Running!`);
+  console.log(`💻 Local: http://localhost:${PORT}`);
+  console.log(`📱 Network: http://${localIP}:${PORT}`);
   console.log(`================================================`);
 });

@@ -1,358 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amul Protein Shake | Blueberry 20g Protein</title>
-  <meta name="description" content="Amul Blueberry Protein Shake – 20g real whey protein, zero added sugar, real fruit. Ready to drink. Fuel your everyday.">
+  <title>Amul — The Taste of India | High Protein Shake</title>
+  <meta name="description" content="Amul — The Taste of India. 20g pure whey protein isolate, zero added sugar, real natural ingredients.">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- CSS Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="theme-dark">
 
-  <!-- ── PRELOADER ── -->
-  <div id="preloader" class="preloader">
-    <div class="loader-content">
-      <div class="brand-badge">
-        <span class="brand-sub">AMUL HIGH PROTEIN</span>
-        <h1 class="brand-title">BLUEBERRY <span>SHAKE</span></h1>
-      </div>
-      <div class="loader-visual">
-        <div class="liquid-bottle-outline">
-          <i class="fa-solid fa-bottle-water bottle-icon"></i>
-          <div class="liquid-fill" id="loader-liquid"></div>
-        </div>
-      </div>
-      <div class="loader-progress-wrap">
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" id="loader-bar"></div>
-        </div>
-        <div class="loader-status">
-          <span id="loader-text">Loading experience...</span>
-          <span id="loader-percent">0%</span>
-        </div>
-      </div>
-      <button id="enter-btn" class="enter-btn hidden">
-        <span>ENTER EXPERIENCE</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
+  <!-- ── ANNOUNCEMENT BAR ── -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span class="flash-badge"><i class="fa-solid fa-bolt"></i> SPECIAL OFFER</span>
+      <span class="announcement-text">20% OFF WITH COUPON CODE: <strong>AMULPRO20</strong> &nbsp;•&nbsp; FREE EXPRESS DELIVERY</span>
+      <div class="stock-ticker"><i class="fa-solid fa-fire"></i> Live Stock: <span id="live-stock-count">14</span> packs left</div>
     </div>
   </div>
 
   <!-- ── NAVBAR ── -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-brand">
-        <div class="brand-logo-icon">A</div>
+      <a href="#slide-1" class="nav-brand">
+        <div class="brand-logo-badge">A</div>
         <div class="brand-text">
-          <span class="brand-name">Amul</span>
-          <span class="brand-tag">PROTEIN</span>
+          <span class="brand-name">AMUL</span>
+          <span class="brand-sub">THE TASTE OF INDIA</span>
         </div>
       </a>
+
       <nav class="nav-menu">
-        <a href="#hero-scroll" class="nav-link active">Experience</a>
-        <a href="#ad-section" class="nav-link">Campaign</a>
-        <a href="#flavors" class="nav-link">Flavors</a>
+        <a href="#slide-1" class="nav-link active">Home</a>
+        <a href="#slide-2" class="nav-link">3D Video</a>
+        <a href="#slide-3" class="nav-link">Flavours</a>
+        <a href="#slide-4" class="nav-link">Cinema</a>
+        <a href="#slide-5" class="nav-link">Ingredients</a>
+        <a href="#slide-6" class="nav-link">Reviews</a>
       </nav>
+
       <div class="nav-actions">
-        <button id="sound-toggle" class="icon-btn" title="Toggle Sound">
-          <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="icon-btn" title="Toggle Theme (Light / Dark)">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
         </button>
-        <button class="cta-btn buy-now-trigger">
+
+        <!-- Cart Button -->
+        <button id="cart-btn-trigger" class="icon-btn cart-btn" title="Cart">
           <i class="fa-solid fa-bag-shopping"></i>
-          <span>Buy Now</span>
+          <span class="badge-count" id="cart-count">0</span>
+        </button>
+
+        <!-- Order Button -->
+        <button class="primary-btn-sm buy-now-action" data-flavor="blueberry">
+          <i class="fa-solid fa-cart-shopping"></i> Order Now
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ── BRAND SLIDE — Separate full-screen heading slide ── -->
-  <section class="brand-slide" id="brand-slide">
-    <div class="brand-slide-bg"></div>
-    <div class="brand-slide-content">
-      <div class="brand-slide-eyebrow"><i class="fa-solid fa-circle-dot"></i> NOW AVAILABLE</div>
-      <h1 class="brand-slide-heading">Amul <span>Shake</span></h1>
-      <p class="brand-slide-tagline">The Taste of India</p>
-      <div class="brand-slide-divider"></div>
-      <p class="brand-slide-sub">Scroll down to experience the animation</p>
-      <div class="brand-slide-arrow"><i class="fa-solid fa-angles-down"></i></div>
-    </div>
-  </section>
+  <!-- ── SLIDE 1: ULTRA-LUXURY FRONT PAGE ── -->
+  <section class="front-page-slide" id="slide-1">
+    <div class="luxury-hero-ambient"></div>
+    <div class="front-page-centered-container">
+      <div class="front-page-content centered-luxury">
+        <div class="brand-eyebrow-badge"><i class="fa-solid fa-crown"></i> ULTRA-LUXURY NUTRITION</div>
+        
+        <h1 class="front-main-title">
+          Amul<br>
+          <span class="gradient-text">The Taste of India</span>
+        </h1>
 
-  <!-- ── SCROLL CANVAS SECTION ── -->
-  <section class="scroll-section" id="hero-scroll">
-    <div class="sticky-viewport">
-      <canvas id="animation-canvas"></canvas>
+        <p class="front-subtitle">
+          Pure dairy whey protein isolate merged with natural fruit extract. 20g protein, zero added sugar, zero artificial preservatives. Engineered for peak performance.
+        </p>
 
-      <!-- hotspots appear mid-animation -->
-      <div class="hotspots-layer" id="hotspots-layer">
-        <div class="hotspot-item" style="top:22%;left:50%;">
-          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
-          <div class="hotspot-card"><h4>Leak-Proof Cap</h4><p>Gym-bag ready seal.</p></div>
-        </div>
-        <div class="hotspot-item" style="top:52%;left:44%;">
-          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
-          <div class="hotspot-card"><h4>20g Whey Protein</h4><p>Premium BCAA blend for rapid recovery.</p></div>
-        </div>
-        <div class="hotspot-item" style="top:76%;left:56%;">
-          <div class="hotspot-dot"><i class="fa-solid fa-plus"></i></div>
-          <div class="hotspot-card"><h4>Real Blueberry</h4><p>Genuine fruit extract, no artificial flavors.</p></div>
-        </div>
-      </div>
-
-      <!-- minimal control dock -->
-      <div class="control-dock">
-        <div class="dock-left">
-          <button id="play-pause-btn" class="dock-btn active" title="Play / Pause">
-            <i class="fa-solid fa-pause" id="play-icon"></i>
+        <div class="front-cta-row centered-ctas">
+          <button class="primary-cta-btn large buy-now-action" data-flavor="blueberry">
+            <i class="fa-solid fa-cart-shopping"></i> Order Now — ₹50
           </button>
-          <button id="fit-mode-btn" class="dock-btn" title="Fit / Fill">
-            <i class="fa-solid fa-expand"></i>
-          </button>
-          <button id="hotspots-toggle-btn" class="dock-btn active" title="Hotspots">
-            <i class="fa-solid fa-location-dot"></i>
-          </button>
-        </div>
-        <div class="scrubber-wrapper">
-          <input type="range" id="frame-scrubber" min="1" max="93" value="1" step="1">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CAMPAIGN SECTION — slides in immediately after experience ── -->
-  <section class="ad-section campaign-slide" id="ad-section">
-
-    <!-- AD HERO BANNER -->
-    <div class="ad-hero-banner">
-      <div class="ad-hero-content">
-        <div class="ad-eyebrow"><i class="fa-solid fa-star"></i> NEW LAUNCH &nbsp;•&nbsp; LIMITED TIME OFFER</div>
-        <h2 class="ad-headline">Drink Real.<br>Perform Real.</h2>
-        <p class="ad-sub">20g of premium whey protein. Real blueberries. Zero added sugar.<br>The cleanest protein shake India has ever tasted.</p>
-        <div class="ad-cta-row">
-          <button class="ad-primary-btn buy-now-trigger">
-            <i class="fa-solid fa-cart-plus"></i> Order Now — ₹50 Only
-          </button>
-          <a href="#flavors" class="ad-ghost-btn">
-            See All Flavors <i class="fa-solid fa-arrow-right"></i>
+          <a href="#slide-3" class="secondary-cta-btn large">
+            <i class="fa-solid fa-bottle-water"></i> Explore Range
           </a>
         </div>
-        <div class="ad-trust-pills">
-          <span><i class="fa-solid fa-shield-halved"></i> FSSAI Certified</span>
-          <span><i class="fa-solid fa-leaf"></i> No Preservatives</span>
-          <span><i class="fa-solid fa-award"></i> Trusted by 5M+ Indians</span>
-        </div>
-      </div>
-      <div class="ad-hero-visual">
-        <div class="ad-circle-glow"></div>
-        <div class="ad-stats-grid">
-          <div class="ad-stat"><span class="ad-stat-val">20g</span><span class="ad-stat-label">Protein</span></div>
-          <div class="ad-stat highlight"><span class="ad-stat-val">0g</span><span class="ad-stat-label">Added Sugar</span></div>
-          <div class="ad-stat"><span class="ad-stat-val">120</span><span class="ad-stat-label">Calories</span></div>
-          <div class="ad-stat"><span class="ad-stat-val">4.5g</span><span class="ad-stat-label">BCAAs</span></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- AD FEATURE STRIP -->
-    <div class="ad-feature-strip">
-      <div class="ad-feature-item">
-        <div class="ad-feat-icon"><i class="fa-solid fa-dumbbell"></i></div>
-        <h3>Muscle Recovery</h3>
-        <p>Fast-absorbing whey isolate that repairs micro-tears and rebuilds stronger muscles within 30 mins.</p>
-      </div>
-      <div class="ad-feature-item">
-        <div class="ad-feat-icon"><i class="fa-solid fa-blueberries"></i></div>
-        <h3>Real Blueberry</h3>
-        <p>Packed with anthocyanin antioxidants from genuine fruit extract — not artificial flavoring.</p>
-      </div>
-      <div class="ad-feature-item">
-        <div class="ad-feat-icon"><i class="fa-solid fa-ban"></i></div>
-        <h3>Zero Sugar Added</h3>
-        <p>No refined sugar spikes. Naturally sweetened profile that aligns perfectly with a lean diet.</p>
-      </div>
-      <div class="ad-feature-item">
-        <div class="ad-feat-icon"><i class="fa-solid fa-truck-fast"></i></div>
-        <h3>Ready to Drink</h3>
-        <p>No mixing, no shaker, no mess. Grab, twist, sip — your protein hit in 10 seconds flat.</p>
-      </div>
-    </div>
-
-    <!-- BOTTLE VIDEO SHOWCASE -->
-    <div class="bottle-video-section">
-      <div class="bottle-video-inner">
-        <div class="bottle-video-left">
-          <span class="ad-section-eyebrow">SIGNATURE 3D SHOWCASE</span>
-          <h2 class="bottle-video-heading">Watch the<br><span>Bottle Come Alive</span></h2>
-          <p class="bottle-video-desc">Experience Amul Blueberry Protein Shake in its full 3D glory — watch it rise through a luxurious milk splash surrounded by real blueberries. A product born for the spotlight.</p>
-          <div class="bottle-video-badges">
-            <div class="vid-badge"><i class="fa-solid fa-dumbbell"></i><span>20g Protein</span></div>
-            <div class="vid-badge"><i class="fa-solid fa-ban"></i><span>Zero Sugar</span></div>
-            <div class="vid-badge"><i class="fa-solid fa-circle-check"></i><span>FSSAI Approved</span></div>
+        <div class="luxury-stats-banner">
+          <div class="lux-stat-card">
+            <span class="lux-val">20g</span>
+            <span class="lux-lbl">Pure Whey Isolate</span>
           </div>
-          <button class="ad-primary-btn buy-now-trigger" style="margin-top:28px;">
-            <i class="fa-solid fa-cart-plus"></i> Order Now — ₹50
-          </button>
-        </div>
-        <div class="bottle-video-right">
-          <div class="bottle-video-frame">
-            <div class="bvf-glow"></div>
-            <canvas id="bottle-video-canvas"></canvas>
-            <div class="bvf-badge-top">3D ANIMATION</div>
-            <div class="bvf-controls">
-              <button id="bv-play-btn" class="bv-ctrl-btn" title="Play / Pause">
-                <i class="fa-solid fa-pause" id="bv-play-icon"></i>
-              </button>
-              <div class="bv-progress-bar"><div class="bv-progress-fill" id="bv-progress-fill"></div></div>
-              <button id="bv-replay-btn" class="bv-ctrl-btn" title="Replay">
-                <i class="fa-solid fa-rotate-right"></i>
-              </button>
-            </div>
+          <div class="lux-stat-card highlight-gold">
+            <span class="lux-val">0g</span>
+            <span class="lux-lbl">Added Sugar</span>
+          </div>
+          <div class="lux-stat-card">
+            <span class="lux-val">120</span>
+            <span class="lux-lbl">Calories</span>
+          </div>
+          <div class="lux-stat-card">
+            <span class="lux-val">4.5g</span>
+            <span class="lux-lbl">Natural BCAAs</span>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- AD TAGLINE FULL WIDTH BANNER -->
-    <div class="ad-tagline-banner">
-      <div class="ad-tagline-inner">
-        <div class="marquee-track">
-          <span>FUEL YOUR GRIND &nbsp;•&nbsp; 20G PROTEIN &nbsp;•&nbsp; REAL BLUEBERRY &nbsp;•&nbsp; ZERO SUGAR &nbsp;•&nbsp;</span>
-          <span>FUEL YOUR GRIND &nbsp;•&nbsp; 20G PROTEIN &nbsp;•&nbsp; REAL BLUEBERRY &nbsp;•&nbsp; ZERO SUGAR &nbsp;•&nbsp;</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- AD TESTIMONIALS -->
-    <div class="ad-testimonials">
-      <div class="ad-section-header">
-        <span class="ad-section-eyebrow">REAL PEOPLE. REAL RESULTS.</span>
-        <h2>Why Athletes Love Amul Protein</h2>
-      </div>
-      <div class="ad-review-grid">
-        <div class="ad-review-card">
-          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>"Finally a protein shake that actually tastes like real blueberry and not like medicine. Post-workout staple!"</p>
-          <div class="ad-reviewer"><div class="ad-reviewer-avatar">RK</div><div><strong>Rahul Khanna</strong><span>Marathon Runner, Mumbai</span></div></div>
-        </div>
-        <div class="ad-review-card featured">
-          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>"20g protein at ₹50? I was skeptical but the quality is unmatched. Switched from expensive imports to Amul."</p>
-          <div class="ad-reviewer"><div class="ad-reviewer-avatar">PS</div><div><strong>Priya Sharma</strong><span>CrossFit Coach, Delhi</span></div></div>
-        </div>
-        <div class="ad-review-card">
-          <div class="ad-review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>"The blueberry flavor is so refreshing! No heavy whey aftertaste. My clients love it as a morning meal replacement."</p>
-          <div class="ad-reviewer"><div class="ad-reviewer-avatar">AM</div><div><strong>Arjun Menon</strong><span>Certified Nutritionist, Bangalore</span></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FLAVOR SECTION -->
-    <div class="ad-flavors" id="flavors">
-      <div class="ad-section-header">
-        <span class="ad-section-eyebrow">EXPLORE THE RANGE</span>
-        <h2>Choose Your Flavor</h2>
-      </div>
-      <div class="flavor-tabs">
-        <button class="flavor-btn active" data-flavor="blueberry"><span class="dot blueberry-dot"></span>Blueberry</button>
-        <button class="flavor-btn" data-flavor="chocolate"><span class="dot chocolate-dot"></span>Chocolate</button>
-        <button class="flavor-btn" data-flavor="vanilla"><span class="dot vanilla-dot"></span>Vanilla</button>
-        <button class="flavor-btn" data-flavor="mango"><span class="dot mango-dot"></span>Mango</button>
-      </div>
-      <div class="flavor-showcase-box">
-        <div class="flavor-info">
-          <span class="flavor-badge" id="flavor-badge">TOP SELLER</span>
-          <h3 id="flavor-title">Blueberry Blast</h3>
-          <p id="flavor-desc">Real blueberry extract with 20g premium whey — sweet, tangy, and packed with antioxidants.</p>
-          <div class="flavor-specs">
-            <div><strong>Size:</strong> 200 ml</div>
-            <div><strong>Protein:</strong> 20g per bottle</div>
-            <div><strong>Price:</strong> ₹50</div>
-          </div>
-          <button class="primary-btn buy-now-trigger">Order This Flavor →</button>
-        </div>
-        <div class="flavor-preview-visual">
-          <div class="bottle-glow-backdrop" id="flavor-glow"></div>
-          <div class="preview-bottle-tag">20g PROTEIN</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FINAL CTA BANNER -->
-    <div class="ad-final-cta">
-      <div class="ad-final-cta-inner">
-        <h2>Ready to Power Up?</h2>
-        <p>Join 5 million+ Indians who trust Amul for daily protein. Order today and get free express delivery.</p>
-        <button class="ad-primary-btn large buy-now-trigger">
-          <i class="fa-solid fa-cart-plus"></i> Order Amul Protein Shake — ₹50
-        </button>
-      </div>
-    </div>
-
   </section>
 
-  <!-- ── ORDER MODAL ── -->
-  <div class="modal-overlay" id="order-modal">
-    <div class="modal-card">
-      <button class="close-modal-btn" id="close-modal">&times;</button>
-      <div class="modal-header">
-        <span class="modal-sub">AMUL DIRECT STORE</span>
-        <h3>Order Protein Shake</h3>
+  <!-- ── SLIDE 2: PURE 3D ANIMATION VIDEO ── -->
+  <section class="video-bottle-slide" id="slide-2">
+    <div class="slide-video-wrapper pure-video-mode">
+      <video id="bottles-3d-video" autoplay muted loop playsinline poster="assets/bottle-front-view.png">
+        <source src="assets/hero_liquid_emerge.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 3: FLAVOUR SECTION WITH SCROLLING IMAGE CAROUSEL & QUANTITY SELECTOR ── -->
+  <section class="flavour-showcase-slide" id="slide-3">
+    <div class="section-header">
+      <span class="eyebrow"><i class="fa-solid fa-droplet"></i> SIGNATURE SELECTION</span>
+      <h2>Choose Your Flavour</h2>
+      <p>Scroll through the official bottle views below to inspect the Front Bottle, Back QR Label, and Official Nutrition Facts.</p>
+    </div>
+
+    <!-- Flavour Selector Tabs -->
+    <div class="flavour-tabs-bar">
+      <button class="flavour-tab active" data-flavor="blueberry">
+        <span class="dot blueberry-dot"></span> 1. Blueberry
+      </button>
+      <button class="flavour-tab" data-flavor="chocolate">
+        <span class="dot chocolate-dot"></span> 2. Chocolate
+      </button>
+      <button class="flavour-tab" data-flavor="vanilla">
+        <span class="dot vanilla-dot"></span> 3. Vanilla
+      </button>
+      <button class="flavour-tab" data-flavor="kesar">
+        <span class="dot kesar-dot"></span> 4. Kesar Mango
+      </button>
+    </div>
+
+    <!-- Flavour Stage Card -->
+    <div class="flavour-card-box">
+      <div class="flavour-layout-grid">
+        
+        <!-- Left: Image Display & Horizontal Scroll Track -->
+        <div class="flavour-visual-column">
+          <div class="bottle-glow-backdrop" id="flavour-glow"></div>
+          
+          <div class="bottle-display-wrapper">
+            <img src="assets/bottle-front-view.png" alt="Bottle Image" id="flavour-main-img" class="flavour-large-img">
+            <div class="image-view-badge" id="current-view-title">Front Bottle View</div>
+          </div>
+
+          <!-- Scrollable Image Track (Front, Back QR, Nutrition Label) -->
+          <div class="flavour-scroll-track" id="flavour-thumb-track">
+            <button class="track-thumb-btn active" data-src="assets/bottle-front-view.png" data-title="Front Bottle View">
+              <img src="assets/bottle-front-view.png" alt="Front View">
+              <span>Front Bottle</span>
+            </button>
+            <button class="track-thumb-btn" data-src="assets/bottle-back-view.png" data-title="Back Label & QR Code">
+              <img src="assets/bottle-back-view.png" alt="Back View">
+              <span>Back Label & QR</span>
+            </button>
+            <button class="track-thumb-btn" data-src="assets/bottle-nutrition-label.png" data-title="Official Nutrition Label">
+              <img src="assets/bottle-nutrition-label.png" alt="Nutrition Label">
+              <span>Nutrition Facts</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Flavour Content Details & Quantity Control -->
+        <div class="flavour-info-column">
+          <div class="flavour-header-flex">
+            <span class="flavour-tag-badge" id="flavour-badge-text">BESTSELLER</span>
+            <span class="flavour-price" id="flavour-price-text">₹50 <small>/ 180ml</small></span>
+          </div>
+
+          <h3 class="flavour-name" id="flavour-name-text">Blueberry Blast</h3>
+          <p class="flavour-desc" id="flavour-desc-text">
+            Hand-harvested wild blueberry extract infused with ultra-filtered whey protein isolate. A rich, refreshing antioxidant powerhouse with zero added sugar.
+          </p>
+
+          <!-- Key Specs Matrix -->
+          <div class="specs-grid">
+            <div class="spec-card">
+              <i class="fa-solid fa-dumbbell"></i>
+              <div>
+                <strong id="flavour-protein-text">20g</strong>
+                <span>Protein</span>
+              </div>
+            </div>
+            <div class="spec-card">
+              <i class="fa-solid fa-fire"></i>
+              <div>
+                <strong id="flavour-calories-text">120 kcal</strong>
+                <span>Calories</span>
+              </div>
+            </div>
+            <div class="spec-card">
+              <i class="fa-solid fa-ban"></i>
+              <div>
+                <strong id="flavour-sugar-text">0g</strong>
+                <span>Added Sugar</span>
+              </div>
+            </div>
+            <div class="spec-card">
+              <i class="fa-solid fa-glass-water"></i>
+              <div>
+                <strong id="flavour-fat-text">1.2g</strong>
+                <span>Fat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ingredients Chips -->
+          <div class="ingredients-list-box">
+            <label><i class="fa-solid fa-leaf"></i> Ingredients:</label>
+            <div class="ingredients-flex" id="flavour-ingredients-flex">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Quantity Selector & Order CTA -->
+          <div class="flavour-order-row">
+            <div class="flavour-qty-selector">
+              <label>Packs:</label>
+              <button id="flavour-qty-minus" class="qty-step-btn">-</button>
+              <span id="flavour-qty-val">6</span>
+              <button id="flavour-qty-plus" class="qty-step-btn">+</button>
+            </div>
+
+            <button class="primary-btn buy-now-action" id="flavour-order-btn" data-flavor="blueberry">
+              <i class="fa-solid fa-cart-shopping"></i> Order Now — <span id="flavour-calc-total">₹300</span>
+            </button>
+          </div>
+        </div>
+
       </div>
-      <div class="modal-body">
-        <div class="product-summary">
-          <div class="sum-thumb"><i class="fa-solid fa-bottle-water"></i></div>
-          <div class="sum-details">
-            <h4>Blueberry Protein Shake (200ml)</h4>
-            <p>20g Protein • 0g Added Sugar</p>
-            <div class="unit-price">₹50 per bottle</div>
-          </div>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 4: CINEMA SLIDE ── -->
+  <section class="cinema-slide" id="slide-4">
+    <div class="cinema-container">
+      <div class="cinema-info">
+        <span class="eyebrow"><i class="fa-solid fa-film"></i> CINEMATIC COMMERCIAL</span>
+        <h2>Studio Liquid Physics Cinema</h2>
+        <p>Watch slow-motion commercial videos featuring studio lighting, liquid splashes, and rotating bottles.</p>
+        <div class="cinema-controls">
+          <button id="cinema-play-btn" class="primary-btn">
+            <i class="fa-solid fa-pause" id="cinema-btn-icon"></i> <span id="cinema-btn-text">Pause Video</span>
+          </button>
+          <button id="cinema-speed-btn" class="secondary-btn">
+            <i class="fa-solid fa-gauge-high"></i> 0.5x Slow Motion
+          </button>
         </div>
-        <div class="quantity-selector">
-          <label>Quantity:</label>
-          <div class="qty-controls">
-            <button id="qty-minus"><i class="fa-solid fa-minus"></i></button>
-            <span id="qty-val">6</span>
-            <button id="qty-plus"><i class="fa-solid fa-plus"></i></button>
-          </div>
-          <div class="pack-note">Pack of 6 recommended for weekly training.</div>
+      </div>
+
+      <div class="cinema-media">
+        <video id="cinema-player" autoplay muted loop playsinline>
+          <source src="assets/hero_liquid_emerge.mp4" type="video/mp4">
+        </video>
+        <div class="cinema-badge">8K LUXURY CINEMA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 5: INGREDIENT & NUTRITION FACTS ── -->
+  <section class="ingredients-slide" id="slide-5">
+    <div class="section-header">
+      <span class="eyebrow"><i class="fa-solid fa-seedling"></i> INGREDIENT INTEGRITY</span>
+      <h2>Key Nutrients & Ingredients</h2>
+      <p>Crafted from 100% natural ultra-filtered dairy protein isolate fortified with essential vitamins.</p>
+    </div>
+
+    <div class="ingredients-grid">
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+        <h3>Milk Protein</h3>
+        <p>Pure ultra-filtered dairy protein isolate derived from fresh Indian milk.</p>
+        <span class="ing-pill-tag">100% Pure</span>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-dumbbell"></i></div>
+        <h3>Whey Isolate</h3>
+        <p>Fast-acting amino acid spectrum for rapid muscle tissue repair.</p>
+        <span class="ing-pill-tag">20g Active</span>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-bone"></i></div>
+        <h3>Calcium</h3>
+        <p>Supports robust bone density and athletic skeletal strength.</p>
+        <span class="ing-pill-tag">700 mg</span>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-sun"></i></div>
+        <h3>Vitamin D3</h3>
+        <p>Enhances calcium absorption and promotes immune system health.</p>
+        <span class="ing-pill-tag">100% RDA</span>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Vitamin B12</h3>
+        <p>Fuels cellular energy metabolism and combats physical fatigue.</p>
+        <span class="ing-pill-tag">Vital Energy</span>
+      </div>
+
+      <div class="ing-card">
+        <div class="ing-icon"><i class="fa-solid fa-shield-cat"></i></div>
+        <h3>Zero Preservatives</h3>
+        <p>No synthetic chemicals, no artificial food dyes, zero added sugar.</p>
+        <span class="ing-pill-tag">Clean Label</span>
+      </div>
+    </div>
+
+    <!-- Nutrition Facts Table -->
+    <div class="nutrition-box-glass">
+      <div class="nut-header">
+        <h3>Nutritional Information</h3>
+        <span>Serving Size: 180 ml Bottle</span>
+      </div>
+      <div class="nut-grid" id="nutrition-facts-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SLIDE 6: REVIEWS & ORDER CTA ── -->
+  <section class="reviews-slide" id="slide-6">
+    <div class="section-header">
+      <span class="eyebrow"><i class="fa-solid fa-star"></i> ATHLETE FEEDBACK</span>
+      <h2>What Athletes Say</h2>
+      <div class="rating-banner">
+        <span class="score">4.9</span>
+        <span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+        <span>Based on 14,800+ Verified Orders</span>
+      </div>
+    </div>
+
+    <div class="reviews-cards-grid">
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-avatar">RK</div>
+          <div><strong>Rohit Kumar</strong> <span class="v-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
         </div>
-        <div class="price-breakdown">
-          <div class="row"><span>Subtotal</span><span id="price-subtotal">₹300</span></div>
-          <div class="row"><span>Express Delivery</span><span class="free-tag">FREE</span></div>
-          <div class="row total-row"><span>Total</span><span id="price-total">₹300</span></div>
+        <p>"The Blueberry flavour is unbelievable! 20g protein for ₹50 is an absolute game-changer. No bloating, tastes clean!"</p>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-avatar">PS</div>
+          <div><strong>Pooja Sharma</strong> <span class="v-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
         </div>
-        <button class="checkout-btn" id="complete-checkout-btn">
-          <span>PROCEED TO CHECKOUT</span>
-          <i class="fa-solid fa-lock"></i>
+        <p>"Switched from imported whey powders to Amul Kesar Shake. Tastes like authentic Kesar badam milk with 20g protein!"</p>
+      </div>
+
+      <div class="rev-card">
+        <div class="rev-header">
+          <div class="rev-avatar">AD</div>
+          <div><strong>Aniket Deshmukh</strong> <span class="v-tag"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span></div>
+        </div>
+        <p>"Chocolate shake is thick, velvety, and zero added sugar! Fits perfectly into my post-workout routine."</p>
+      </div>
+    </div>
+
+    <!-- Prominent Order Product Section -->
+    <div class="order-cta-banner">
+      <h2>Ready to Power Up Your Workout?</h2>
+      <p>Order Amul Protein Shake today. 20g Whey Protein • ₹50 per bottle • Free Express Shipping.</p>
+      <button class="primary-cta-btn large buy-now-action" data-flavor="blueberry">
+        <i class="fa-solid fa-cart-shopping"></i> Order Amul Protein Shake — ₹50
+      </button>
+    </div>
+  </section>
+
+  <!-- ── CART SLIDE-OUT DRAWER ── -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="drawer-header">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Shopping Cart (<span id="cart-drawer-count">0</span>)</h3>
+        <button class="close-drawer-btn" id="close-cart-drawer">&times;</button>
+      </div>
+
+      <div class="cart-items-scroll" id="cart-items-container">
+        <!-- Dynamically rendered cart items -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="coupon-box">
+          <input type="text" id="coupon-input" placeholder="Enter coupon (e.g. AMULPRO20)" value="AMULPRO20">
+          <button id="apply-coupon-btn">Apply</button>
+        </div>
+        <div class="coupon-msg" id="coupon-message"></div>
+
+        <div class="summary-row"><span>Subtotal:</span><span id="cart-subtotal">₹0</span></div>
+        <div class="summary-row"><span>Discount (20% Off):</span><span id="cart-discount">-₹0</span></div>
+        <div class="summary-row"><span>Delivery:</span><span class="free-badge">FREE</span></div>
+        <div class="summary-row total-row"><span>Grand Total:</span><span id="cart-grand-total">₹0</span></div>
+
+        <button class="primary-btn checkout-trigger-btn" id="proceed-to-checkout-btn">
+          <i class="fa-solid fa-lock"></i> PROCEED TO PAYMENT
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ── TOAST ── -->
-  <div class="toast-notification" id="toast">
-    <i class="fa-solid fa-circle-check"></i>
-    <span id="toast-msg">Order placed!</span>
+  <!-- ── PAYMENT & CHECKOUT MODAL WITH VERIFIED CUSTOMER DETAILS & UPLOADED BANK OF MAHARASHTRA QR CODE ── -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card checkout-modal-card">
+      <button class="close-modal-btn" id="close-checkout-modal">&times;</button>
+
+      <div class="checkout-grid">
+        <!-- Form & Payment Options -->
+        <div class="checkout-form-column">
+          <div class="modal-header">
+            <span class="modal-sub"><i class="fa-solid fa-shield-halved"></i> 256-BIT SSL ENCRYPTED CHECKOUT</span>
+            <h3>Complete Your Order</h3>
+          </div>
+
+          <form id="checkout-form" onsubmit="return false;">
+            <!-- Customer Information Section -->
+            <div class="form-section-title"><i class="fa-solid fa-user-check"></i> 1. Customer Verification & Delivery Info</div>
+            
+            <div class="form-row-2">
+              <div>
+                <label class="input-lbl">Full Name of Customer *</label>
+                <input type="text" id="cust-name" placeholder="Enter your full name *" required value="Chandrashekhar Lokhande">
+              </div>
+              <div>
+                <label class="input-lbl">Mobile Number *</label>
+                <input type="tel" id="cust-phone" placeholder="Enter phone number *" required value="+91 98765 43210">
+              </div>
+            </div>
+
+            <!-- Email & Verification Badge -->
+            <div class="form-row email-verify-row">
+              <div style="flex:1;">
+                <label class="input-lbl">Email Address (To Verify Order) *</label>
+                <div class="email-input-wrapper">
+                  <input type="email" id="cust-email" placeholder="Enter email address *" required value="lokhande.chandrashekhar@example.com">
+                  <button type="button" class="verify-email-btn" id="verify-email-trigger">
+                    <i class="fa-solid fa-circle-check" id="email-verify-icon"></i> <span id="email-verify-lbl">Verify</span>
+                  </button>
+                </div>
+                <div class="email-status-text" id="email-status-msg"><i class="fa-solid fa-shield"></i> Order receipt & live tracking will be sent to this email.</div>
+              </div>
+            </div>
+
+            <!-- Shipping Address & Location Tracker -->
+            <div class="form-row">
+              <div class="address-header-flex">
+                <label class="input-lbl">Delivery Address & Landmark *</label>
+                <button type="button" class="detect-loc-btn" id="auto-detect-location-btn">
+                  <i class="fa-solid fa-location-crosshairs"></i> Detect Location Pin
+                </button>
+              </div>
+              <textarea id="cust-address" placeholder="Flat / House No., Building Name, Street, Landmark, Pincode *" rows="2" required>Flat 402, Building 12, Maharashtra Bank Lane, Pune, 411001</textarea>
+              <div class="loc-pin-badge" id="detected-loc-tag"><i class="fa-solid fa-location-dot"></i> GPS Location: Pune, Maharashtra (411001)</div>
+            </div>
+
+            <!-- Payment Options Section -->
+            <div class="form-section-title"><i class="fa-solid fa-credit-card"></i> 2. Payment Process & QR Code</div>
+            
+            <div class="payment-methods-grid">
+              <!-- Bank of Maharashtra / PhonePe UPI QR Code -->
+              <label class="pay-option active">
+                <input type="radio" name="payment" value="Bank of Maharashtra PhonePe QR" checked>
+                <i class="fa-solid fa-qrcode" style="color:#6739B7;"></i>
+                <span>Bank of Maharashtra QR</span>
+              </label>
+
+              <!-- PhonePe -->
+              <label class="pay-option">
+                <input type="radio" name="payment" value="PhonePe">
+                <i class="fa-solid fa-mobile-screen" style="color:#6739B7;"></i>
+                <span>PhonePe</span>
+              </label>
+
+              <!-- Google Pay -->
+              <label class="pay-option">
+                <input type="radio" name="payment" value="Google Pay">
+                <i class="fa-brands fa-google-pay" style="color:#4285F4;"></i>
+                <span>Google Pay</span>
+              </label>
+
+              <!-- Amazon Pay -->
+              <label class="pay-option">
+                <input type="radio" name="payment" value="Amazon Pay">
+                <i class="fa-brands fa-amazon-pay" style="color:#FF9900;"></i>
+                <span>Amazon Pay</span>
+              </label>
+
+              <!-- Cash on Delivery -->
+              <label class="pay-option">
+                <input type="radio" name="payment" value="Cash on Delivery">
+                <i class="fa-solid fa-hand-holding-dollar" style="color:#F59E0B;"></i>
+                <span>Cash on Delivery (COD)</span>
+              </label>
+
+              <!-- Credit/Debit Cards -->
+              <label class="pay-option">
+                <input type="radio" name="payment" value="Credit/Debit Card">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Visa / MasterCard</span>
+              </label>
+            </div>
+
+            <!-- Official Bank of Maharashtra PhonePe QR Code Container -->
+            <div class="qr-code-box" id="qr-display-box">
+              <div class="qr-bank-header">
+                <img src="assets/bank_of_maharashtra_qr.jpg" alt="Bank of Maharashtra QR Code" class="uploaded-qr-img">
+              </div>
+              <div class="qr-title"><i class="fa-solid fa-qrcode"></i> Scan Official PhonePe QR Code to Pay</div>
+              <div class="upi-id-copy-bar">
+                <span>UPI ID: <strong>lokhande.chandrashekhar@ybl</strong></span>
+                <button type="button" id="copy-upi-btn" class="copy-chip-btn"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <div class="qr-sub">Scan with PhonePe, Google Pay, Paytm, or BHIM to complete order.</div>
+            </div>
+
+            <!-- Submit Order Button -->
+            <button type="button" class="primary-btn submit-order-btn" id="confirm-pay-btn">
+              <i class="fa-solid fa-shield-halved"></i> PLACE ORDER NOW — <span id="checkout-pay-total">₹240</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Order Summary & Increase / Decrease Product Controls -->
+        <div class="checkout-summary-column">
+          <h4>Order Summary</h4>
+          <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:14px;">Adjust pack quantity (+ / -) directly below:</p>
+
+          <div class="summary-items-list" id="checkout-summary-items">
+            <!-- Dynamic Items with Increase / Decrease Buttons -->
+          </div>
+
+          <div class="checkout-cost-breakdown">
+            <div class="row"><span>Subtotal:</span><span id="co-subtotal">₹300</span></div>
+            <div class="row"><span>Discount (20% Off):</span><span id="co-discount">-₹60</span></div>
+            <div class="row"><span>Express Delivery:</span><span class="free-tag">FREE</span></div>
+            <hr>
+            <div class="row grand-total-row"><span>Grand Total:</span><span id="co-grand-total">₹240</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- ── ORDER TRACKING & VERIFICATION MODAL ── -->
+  <div class="modal-overlay" id="tracking-modal">
+    <div class="modal-card tracking-modal-card">
+      <button class="close-modal-btn" id="close-tracking-modal">&times;</button>
+      
+      <div class="modal-header">
+        <span class="modal-sub"><i class="fa-solid fa-circle-check" style="color:#10B981;"></i> ORDER CONFIRMED & VERIFIED</span>
+        <h3>Order ID: <span id="track-order-id">#AMUL-98241</span></h3>
+      </div>
+
+      <div class="tracking-body">
+        <!-- Verified Customer Box -->
+        <div class="customer-receipt-card">
+          <div><i class="fa-solid fa-user"></i> Customer: <strong id="track-cust-name">Chandrashekhar Lokhande</strong></div>
+          <div><i class="fa-solid fa-phone"></i> Mobile: <strong id="track-cust-phone">+91 98765 43210</strong></div>
+          <div><i class="fa-solid fa-envelope"></i> Verified Email: <strong id="track-cust-email">lokhande.chandrashekhar@example.com</strong></div>
+          <div><i class="fa-solid fa-location-dot"></i> Live Destination: <span id="track-cust-address">Flat 402, Building 12, Maharashtra Bank Lane, Pune, 411001</span></div>
+        </div>
+
+        <div class="tracking-progress-steps">
+          <div class="step completed"><div class="step-icon"><i class="fa-solid fa-check"></i></div><span>Order Placed</span></div>
+          <div class="step completed"><div class="step-icon"><i class="fa-solid fa-box"></i></div><span>Packed & Sealed</span></div>
+          <div class="step active"><div class="step-icon"><i class="fa-solid fa-truck-fast"></i></div><span>Out for Delivery</span></div>
+          <div class="step"><div class="step-icon"><i class="fa-solid fa-house"></i></div><span>Delivered</span></div>
+        </div>
+
+        <p><i class="fa-solid fa-location-crosshairs" style="color:#10B981;"></i> Live Dispatch Status: <strong>In Transit to Customer Address</strong> • Delivery expected by <strong>Tomorrow, 4:00 PM</strong>.</p>
+
+        <div class="tracking-actions-row">
+          <button class="primary-btn" id="download-invoice-btn"><i class="fa-solid fa-file-arrow-down"></i> Download Tax Invoice</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOAST NOTIFICATIONS ── -->
+  <div class="toast-container" id="toast-container"></div>
 
   <!-- ── FOOTER ── -->
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-brand"><h3>Amul <span>PROTEIN</span></h3><p>The Taste of India • Powered by Modern Nutrition</p></div>
-      <div class="footer-links">
-        <a href="#hero-scroll">Experience</a>
-        <a href="#ad-section">Campaign</a>
-        <a href="#flavors">Flavors</a>
+      <div>
+        <h3>AMUL — THE TASTE OF INDIA</h3>
+        <p>Powered by 20g Pure Dairy Whey Isolate</p>
       </div>
-      <div class="footer-copy">&copy; 2026 Amul Dairy. All rights reserved.</div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#slide-1">Home</a>
+        <a href="#slide-3">Flavours</a>
+        <a href="#slide-5">Ingredients</a>
+        <a href="#slide-6">Reviews</a>
+      </div>
+      <div>
+        <h4>Official Payments Accepted</h4>
+        <p>Bank of Maharashtra PhonePe QR Code, Google Pay, Amazon Pay, Cash on Delivery, Visa, MasterCard.</p>
+      </div>
     </div>
+    <div class="footer-bottom">&copy; 2026 Amul Dairy. All rights reserved.</div>
   </footer>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
