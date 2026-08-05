@@ -1,6 +1,6 @@
 /* ==========================================================================
    AMUL — THE TASTE OF INDIA
-   16:9 Aspect Ratio & Full Mobile Responsive Luxury Stylesheet
+   Full Mobile Responsive Luxury Stylesheet (Standalone 100vh 3D Video Slide 2)
    ========================================================================== */
 
 :root {
@@ -106,6 +106,8 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   color: #FFF;
   padding: 8px 20px;
   font-size: 0.8rem;
+  position: relative;
+  z-index: 1000;
 }
 
 .announcement-content {
@@ -200,19 +202,23 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 .secondary-cta-btn.large { padding: 20px 40px; font-size: 1.1rem; }
 
-/* ── SLIDE 1: ULTRA-LUXURY CENTERED FRONT PAGE (16:9 RATIO FIT) ── */
+/* ── SLIDE 1: ULTRA-LUXURY CENTERED FRONT PAGE ── */
 .front-page-slide {
   position: relative;
-  min-height: 85vh;
-  aspect-ratio: 16 / 9;
+  z-index: 2;
   width: 100%;
-  display: flex; align-items: center; justify-content: center;
-  padding: 80px 20px; overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px 60px 20px;
+  box-sizing: border-box;
+  clear: both;
 }
 
 .luxury-hero-ambient {
-  position: absolute; width: 600px; height: 600px; border-radius: 50%;
-  background: var(--current-flavor-glow); filter: blur(120px); z-index: 1; opacity: 0.6;
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: var(--current-flavor-glow); filter: blur(120px); z-index: 1; opacity: 0.5;
 }
 
 .front-page-centered-container {
@@ -231,12 +237,12 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 
 .front-main-title {
-  font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900;
-  line-height: 1.05; margin-bottom: 24px; letter-spacing: -2px;
+  font-family: var(--font-heading); font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900;
+  line-height: 1.1; margin-bottom: 24px; letter-spacing: -1.5px;
 }
 
 .front-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--text-secondary); margin-bottom: 40px; max-width: 720px; line-height: 1.6;
+  font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--text-secondary); margin-bottom: 36px; max-width: 720px; line-height: 1.6;
 }
 
 .centered-ctas { justify-content: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
@@ -255,27 +261,59 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 
 .lux-val {
-  font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 900; display: block; color: var(--text-primary);
+  font-family: var(--font-heading); font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 900; display: block; color: var(--text-primary);
 }
 
 .lux-lbl {
   font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block;
 }
 
-/* ── SLIDE 2: PURE 3D ANIMATION VIDEO (16:9 RATIO FIT) ── */
+/* ── SLIDE 2: PURE DEDICATED 3D ANIMATION VIDEO SLIDE (STANDALONE 100VH VIEW) ── */
 .video-bottle-slide {
   position: relative;
+  z-index: 2;
   width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #050609;
+  clear: both;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.slide-video-wrapper {
+  width: 100%;
+  max-width: 1300px;
   aspect-ratio: 16 / 9;
-  max-height: 85vh;
+  max-height: 80vh;
+  border-radius: 28px;
   overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+  border: 1px solid var(--border-glass);
   background: #000;
 }
-.pure-video-mode { width: 100%; height: 100%; }
-.pure-video-mode video { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16 / 9; }
 
-/* ── SLIDE 3: FLAVOUR SHOWCASE (16:9 CARD DISPLAY) ── */
-.flavour-showcase-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.slide-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── SLIDE 3: FLAVOUR SHOWCASE ── */
+.flavour-showcase-slide {
+  position: relative;
+  z-index: 2;
+  padding: 80px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  box-sizing: border-box;
+}
+
 .flavour-tabs-bar { display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
 .flavour-tab {
   background: var(--bg-card); border: 1px solid var(--border-glass);
@@ -309,9 +347,8 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
   background: var(--current-flavor-glow); filter: blur(70px);
 }
 
-/* 16:9 Aspect Ratio Display Container */
 .bottle-display-wrapper {
-  position: relative; z-index: 2; width: 100%; aspect-ratio: 16 / 9; max-height: 400px;
+  position: relative; z-index: 2; width: 100%; aspect-ratio: 16 / 9; max-height: 380px;
   display: flex; align-items: center; justify-content: center;
   background: rgba(255, 255, 255, 0.98);
   border-radius: 24px; padding: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
@@ -378,8 +415,8 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .qty-step-btn:hover { transform: scale(1.1); }
 #flavour-qty-val { font-size: 1.1rem; font-weight: 900; min-width: 24px; text-align: center; }
 
-/* ── SLIDE 4: CINEMA SLIDE (16:9 VIDEO PLAYER) ── */
-.cinema-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
+/* ── SLIDE 4: CINEMA SLIDE ── */
+.cinema-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; clear: both; }
 .cinema-container {
   background: var(--bg-card); border: 1px solid var(--border-glass);
   border-radius: 32px; padding: clamp(20px, 4vw, 40px); display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: center;
@@ -389,7 +426,7 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .cinema-badge { position: absolute; top: 16px; left: 16px; background: rgba(0,0,0,0.7); padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 800; color: var(--accent-gold); }
 
 /* ── SLIDE 5: INGREDIENTS & NUTRITION ── */
-.ingredients-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.ingredients-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; clear: both; }
 .ingredients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .ing-card { background: var(--bg-card); border: 1px solid var(--border-glass); padding: 20px; border-radius: 20px; transition: var(--transition-smooth); }
 .ing-card:hover { transform: translateY(-4px); border-color: var(--current-flavor-color); }
@@ -402,7 +439,7 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .nut-row { display: flex; justify-content: space-between; padding: 10px 14px; background: var(--bg-glass); border-radius: 10px; font-size: 0.85rem; }
 
 /* ── SLIDE 6: REVIEWS & CTA ── */
-.reviews-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
+.reviews-slide { padding: 80px 20px; max-width: 1400px; margin: 0 auto; width: 100%; clear: both; }
 .rating-banner { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
 .rating-banner .score { font-size: 1.8rem; font-weight: 900; color: var(--accent-gold); }
 .rating-banner .stars { color: var(--accent-gold); }
@@ -531,11 +568,11 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 .toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 30000; display: flex; flex-direction: column; gap: 10px; }
 .toast { background: #10B981; color: #FFF; padding: 12px 20px; border-radius: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 
-.footer { background: #050608; border-top: 1px solid var(--border-glass); padding: 60px 20px 20px 20px; }
+.footer { background: #050608; border-top: 1px solid var(--border-glass); padding: 60px 20px 20px 20px; clear: both; }
 .footer-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
 .footer-bottom { border-top: 1px solid var(--border-glass); padding-top: 20px; text-align: center; color: var(--text-muted); font-size: 0.8rem; }
 
-/* ── 16:9 RATIO & MOBILE RESPONSIVE MEDIA QUERIES ── */
+/* ── MOBILE RESPONSIVE MEDIA QUERIES (STANDALONE 100VH 3D VIDEO SLIDE) ── */
 @media (max-width: 1024px) {
   .flavour-layout-grid, .cinema-container, .checkout-grid, .footer-container { grid-template-columns: 1fr; }
   .luxury-stats-banner { grid-template-columns: repeat(2, 1fr); }
@@ -543,9 +580,28 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 }
 
 @media (max-width: 768px) {
-  .front-page-slide { min-height: 70vh; aspect-ratio: 16 / 9; padding: 60px 16px; }
-  .video-bottle-slide { aspect-ratio: 16 / 9; height: auto; max-height: 60vh; }
-  .bottle-display-wrapper { aspect-ratio: 16 / 9; height: auto; max-height: 280px; }
+  .front-page-slide {
+    min-height: 80vh;
+    padding: 80px 16px 40px 16px;
+  }
+  .video-bottle-slide {
+    min-height: 90vh;
+    padding: 40px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-video-wrapper {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    max-height: 65vh;
+  }
+  .bottle-display-wrapper {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 260px;
+  }
   .cinema-media { aspect-ratio: 16 / 9; }
   .specs-grid { grid-template-columns: repeat(2, 1fr); }
   .nut-grid { grid-template-columns: 1fr; }
@@ -558,12 +614,13 @@ button { font-family: inherit; cursor: pointer; border: none; outline: none; bac
 @media (max-width: 480px) {
   .announcement-content { justify-content: center; text-align: center; }
   .stock-ticker { display: none; }
-  .front-page-slide { min-height: 65vh; aspect-ratio: 16 / 9; padding: 40px 12px; }
+  .front-page-slide { min-height: 80vh; padding: 60px 12px 30px 12px; }
+  .video-bottle-slide { min-height: 85vh; padding: 30px 12px; }
   .luxury-stats-banner { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .lux-stat-card { padding: 14px 8px; }
+  .lux-stat-card { padding: 12px 6px; }
   .flavour-card-box { padding: 16px; }
-  .bottle-display-wrapper { aspect-ratio: 16 / 9; max-height: 220px; padding: 10px; }
+  .bottle-display-wrapper { aspect-ratio: 16 / 9; max-height: 200px; padding: 10px; }
   .track-thumb-btn { min-width: 75px; height: 65px; }
   .track-thumb-btn img { height: 32px; }
-  .checkout-modal-card { padding: 18px; border-radius: 20px; }
+  .checkout-modal-card { padding: 16px; border-radius: 20px; }
 }
